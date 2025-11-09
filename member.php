@@ -3,12 +3,12 @@
 include 'partials/header.php';
 include 'partials/sidebar.php';
 ?> 
-        <!-- BEGIN PlACE PAGE CONTENT HERE -->
-        <div class="page-content">
+    <!-- BEGIN PAGE CONTAINER-->
+<div class="page-content">
     <div class="content">
         <!-- BEGIN PAGE TITLE -->
         <div class="page-title">
-            <h2>Manage Category</h2>
+            <h2>Manage Users</h2>
         </div>
         <!-- END PAGE TITLE -->
         <!-- BEGIN PlACE PAGE CONTENT HERE -->
@@ -21,7 +21,6 @@ include 'partials/sidebar.php';
                             <a href="#" id="activeAll" class="btn btn-primary tip" data-toggle="tooltip" title="Active Selected"><i class="fa fa-eye"></i></a>
                             <a href="#" id="deactiveAll" class="btn btn-primary tip" data-toggle="tooltip" title="Deactive Selected"><i class="fa fa-eye-slash"></i></a>
                             <a href="#" id="deleteAll" class="btn btn-primary tip" data-toggle="tooltip" title="Delete Selected"><i class="fa fa-trash"></i></a>
-                            <a href="add_category.php" class="btn btn-primary tip" data-toggle="tooltip" title="Create"><i class="fa fa-plus"></i></a>
                         </div>
                     </div>
                         
@@ -31,53 +30,42 @@ include 'partials/sidebar.php';
                             <tr>
                                 <th style="width:1%">
                                     <div class="checkbox check-default">
-                                        <input id="checkbox" type="checkbox" value="1" class="checkall">
-                                        <label for="checkbox"></label>
+                                        <input id="checkbox10" type="checkbox" value="1" class="checkall">
+                                        <label for="checkbox10"></label>
                                     </div>
                                 </th>
-                                <th style="width:40%">Title</th>
+                                <th style="width:30%">Fullname</th>
+                                <th style="width:30%">Email</th>
+                                <th style="width:20%">Member Image</th>
                                 <th style="width:10%">Status</th>
                                 <th style="width:10%">Manage</th>
                             </tr>
                         </thead>
                         <tbody>
-                        
-                        <?php
-                            require 'config/dbc.php';
-                            $query = mysqli_query($connection, "SELECT * FROM category") or die(mysqli_error($connection));
-                            while ($row = mysqli_fetch_array($query)) {
-                        ?>
-
-
                             <tr>
                                 <td>
                                     <div class="checkbox check-default">
-                                        <input id="checkbox" type="checkbox" value="1" class="checkall">
-                                        <label for="checkbox"></label>
+                                        <input id="checkbox10" type="checkbox" value="1" class="checkall">
+                                        <label for="checkbox10"></label>
                                     </div>
                                 </td>
-                                <td><?php echo $row['title'];?></td>
+                                <td>Name</td>
+                                <td>Email</td>
+                                <td>img will be here</td>
                                 <td>
-                                    <?php if ($row['status'] == 'DEACTIVE') : ?>
-                                        <a href="category_status.php?id=<?php echo $row['id']; ?>" > <span class="label label-important btn-small"><i class="fa fa-thumbs-o-down"></i></span></a>
-                                    <?php else : ?>
-                                        <a href="category_status.php?id=<?php echo $row['id']; ?>"> <span class="label label-info btn-small"><i class="fa fa-thumbs-o-up"></i></span> </a>
-                                    <?php endif; ?>
+                                    <a href="#" > <span class="label label-important btn-small"><i class="fa fa-thumbs-o-down"></i></span></a>
+                                    <a href="#"> <span class="label label-info btn-small"><i class="fa fa-thumbs-o-up"></i></span> </a>
                                 </td>
                                 <td>
-                                    <a href="edit_category.php?id=<?php echo $row['id']; ?>" class="label label-info"> <i class="fa fa-edit"></i></a>
-                                    <a href="delete_category.php?id=<?php echo $row['id'];?>" onclick="return confirm ('Are you want to Pakka delete this?')" class="label label-important "> <i class="fa fa-trash-o"></i></a>
+                                    <a href="edit_member.php" class="label label-info"> <i class="fa fa-edit"></i></a>
+                                    <a href="#" class="label label-important"> <i class="fa fa-trash-o"></i></a>
                                 </td>
                             </tr>
-                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <!-- END PLACE PAGE CONTENT HERE -->
-    </div>
-</div>
         <!-- END PLACE PAGE CONTENT HERE -->
     </div>
 </div>
